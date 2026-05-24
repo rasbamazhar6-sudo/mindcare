@@ -1,14 +1,9 @@
 import axios from "axios";
+import { API_BASE_URL } from "../config/api.js";
 import { TOKEN_STORAGE_KEY } from "../utils/constants";
 
-function getBaseURL() {
-  const url = import.meta.env.VITE_API_URL;
-  if (url && String(url).trim()) return String(url).replace(/\/$/, "");
-  return "/api";
-}
-
 const api = axios.create({
-  baseURL: getBaseURL(),
+  baseURL: API_BASE_URL,
   timeout: Number(import.meta.env.VITE_API_TIMEOUT) || 45000,
   headers: { "Content-Type": "application/json" },
 });
@@ -30,3 +25,4 @@ api.interceptors.response.use(
 );
 
 export default api;
+export { API_BASE_URL };
