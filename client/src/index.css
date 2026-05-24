@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-mind-mint: #b8e8d4;
+  --color-mind-sky: #b8d9f0;
+  --color-mind-lilac: #d4c8f5;
+  --color-mind-ink: #1e293b;
+  --color-mind-muted: #64748b;
+  --color-mind-surface: #f8fafc;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased font-sans;
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    @apply bg-violet-200/80 text-slate-900;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .glass {
+    @apply bg-white/55 backdrop-blur-xl border border-white/60 shadow-[0_8px_40px_-12px_rgba(15,23,42,0.15)];
+  }
+
+  .glass-strong {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/70 shadow-[0_12px_48px_-16px_rgba(15,23,42,0.2)];
+  }
+
+  .gradient-page {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgb(184 232 212 / 0.45), transparent 55%),
+      radial-gradient(900px 500px at 90% 0%, rgb(184 217 240 / 0.5), transparent 50%),
+      radial-gradient(800px 500px at 50% 100%, rgb(212 200 245 / 0.35), transparent 55%),
+      linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .gradient-hero {
+    background:
+      radial-gradient(ellipse 900px 500px at 20% 20%, rgb(184 232 212 / 0.55), transparent 60%),
+      radial-gradient(ellipse 800px 450px at 85% 10%, rgb(184 217 240 / 0.55), transparent 55%),
+      radial-gradient(ellipse 700px 400px at 50% 90%, rgb(212 200 245 / 0.45), transparent 55%),
+      linear-gradient(165deg, #f8fafc 0%, #eef6ff 45%, #f5f0ff 100%);
+  }
+
+  .animate-float {
+    animation: float 7s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.7s ease-out both;
+  }
+
+  .animate-typing-dot {
+    animation: typing-dot 1.2s ease-in-out infinite;
+  }
+
+  .mindcare-input {
+    @apply w-full rounded-2xl border border-slate-200/80 bg-white/80 text-sm text-slate-900 outline-none transition focus:border-teal-300 focus:ring-2 focus:ring-teal-200;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
