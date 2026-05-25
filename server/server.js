@@ -20,7 +20,7 @@ const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
 
 app.use(
   cors({
-    origin: [clientUrl, "http://127.0.0.1:5173", "https://https://mindcare-sandy.vercel.app"],
+    origin: [clientUrl, "http://127.0.0.1:5173", "https://mindcare-sandy.vercel.app"],
     credentials: true,
   })
 );
