@@ -5,6 +5,7 @@ import { ROUTES } from "../../utils/constants";
 import { useAuth } from "../../hooks/useAuth";
 import Button from "../ui/Button";
 import Logo from "../ui/Logo";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const navLinkClass = ({ isActive }) =>
   `relative px-1 py-1 text-sm font-medium transition-colors duration-300 ${
@@ -68,6 +69,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           {isAuthenticated ? (
             <>
               <span
@@ -96,6 +98,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-xl border border-slate-200/80 bg-white/70 p-2 text-slate-800 shadow-sm transition-all duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:bg-slate-700"

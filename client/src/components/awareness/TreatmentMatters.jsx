@@ -24,19 +24,19 @@ export default function TreatmentMatters() {
               className="animate-fade-up"
               style={{ animationDelay: `${i * 80}ms` }}
             >
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-100 to-sky-100 text-teal-800">
+              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-100 to-sky-100 text-teal-800 dark:from-slate-700 dark:to-slate-800 dark:text-teal-300">
                 <Icon className="h-5 w-5" aria-hidden />
               </div>
-              <h3 className="font-display text-lg text-slate-900">{point.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{point.text}</p>
+              <h3 className="font-display text-lg text-slate-900 dark:text-slate-100">{point.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{point.text}</p>
             </Card>
           );
         })}
       </div>
 
-      <Card className="mt-8 border border-teal-100/80 bg-gradient-to-br from-teal-50/60 via-white/70 to-sky-50/60 p-6">
-        <p className="text-sm leading-relaxed text-slate-700">
-          <strong className="text-slate-900">For families in Pakistan:</strong> Supporting a loved one can mean listening
+      <Card className="mt-8 border border-teal-100/80 bg-gradient-to-br from-teal-50/60 via-white/70 to-sky-50/60 p-6 dark:border-teal-800/50 dark:from-teal-950/30 dark:via-slate-800/60 dark:to-sky-950/30">
+        <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+          <strong className="text-slate-900 dark:text-slate-100">For families in Pakistan:</strong> Supporting a loved one can mean listening
           without judgment, helping them book a psychologist, and knowing helplines like{" "}
           <strong>Umang (0311-7786264)</strong> and <strong>Taskeen (0316-8275336)</strong>. Treatment works best when
           shame is replaced with compassion.

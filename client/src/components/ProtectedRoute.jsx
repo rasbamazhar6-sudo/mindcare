@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children }) {
   if (loading) {
     return (
       <div className="flex min-h-[40vh] items-center justify-center" aria-live="polite">
-        <p className="text-sm text-slate-600">Loading your space…</p>
+        <p className="text-sm text-slate-600 dark:text-slate-400">Loading your space…</p>
       </div>
     );
   }

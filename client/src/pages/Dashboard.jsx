@@ -250,22 +250,22 @@ export default function Dashboard() {
                   Weekly progress
                 </h2>
                 <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-400">Task completion by day (from your account)</p>
-                <div className="mt-3 rounded-xl border border-slate-200/60 bg-gradient-to-b from-white/80 to-slate-50/80 px-2 py-2">
+                <div className="mt-3 rounded-xl border border-slate-200/60 bg-gradient-to-b from-white/80 to-slate-50/80 px-2 py-2 dark:border-slate-600/60 dark:from-slate-800/80 dark:to-slate-900/80">
                   <Suspense
                     fallback={
-                      <div className="flex h-48 items-center justify-center text-xs text-slate-500">Loading chart…</div>
+                      <div className="flex h-48 items-center justify-center text-xs text-slate-500 dark:text-slate-400">Loading chart…</div>
                     }
                   >
                     <WeeklyProgressChart data={weekSeries.length ? weekSeries : [{ label: "—", value: 0 }]} />
                   </Suspense>
                 </div>
               </Card>
-              <Card className="lg:col-span-2 bg-gradient-to-br from-emerald-50/80 via-white/60 to-violet-50/70 p-5">
+              <Card className="lg:col-span-2 bg-gradient-to-br from-emerald-50/80 via-white/60 to-violet-50/70 p-5 dark:from-emerald-950/40 dark:via-slate-800/60 dark:to-violet-950/40">
                 <h2 className="font-display text-lg text-slate-900 dark:text-slate-100">Motivation</h2>
                 <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
                   Progress is allowed to be uneven. Showing up here is care, not performance.
                 </p>
-                <div className="mt-4 rounded-xl border border-white/60 bg-white/55 p-3 text-xs text-slate-700 dark:text-slate-300">
+                <div className="mt-4 rounded-xl border border-white/60 bg-white/55 p-3 text-xs text-slate-700 dark:border-slate-600 dark:bg-slate-800/50 dark:text-slate-300">
                   <HiOutlineCloud className="mb-1.5 h-5 w-5 text-sky-600" aria-hidden />
                   Pick one task below your energy line and finish it slowly.
                 </div>

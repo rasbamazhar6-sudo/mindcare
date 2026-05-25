@@ -7,18 +7,23 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { useTheme } from "../../hooks/useTheme";
 
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-xl border border-white/80 bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur">
-      <p className="font-medium text-slate-800">{label}</p>
-      <p className="text-slate-600">Wellness score: {payload[0].value}%</p>
+    <div className="rounded-xl border border-white/80 bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur dark:border-slate-600 dark:bg-slate-800/95">
+      <p className="font-medium text-slate-800 dark:text-slate-200">{label}</p>
+      <p className="text-slate-600 dark:text-slate-400">Wellness score: {payload[0].value}%</p>
     </div>
   );
 }
 
 export default function WeeklyProgressChart({ data }) {
+  const { isDark } = useTheme();
+  const tickFill = isDark ? "#94a3b8" : "#64748b";
+  const gridStroke = isDark ? "#334155" : "#e2e8f0";
+
   return (
     <div className="h-56 w-full min-w-0">
       <ResponsiveContainer width="100%" height="100%">
@@ -30,24 +35,18 @@ export default function WeeklyProgressChart({ data }) {
               <stop offset="100%" stopColor="#a78bfa" stopOpacity={0.85} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="#e2e8f0" strokeOpacity={0.9} />
-          <XAxis
-            dataKey="label"
-            tick={{ fontSize: 11, fill: "#64748b" }}
-            axisLine={false}
-            tickLine={false}
-            dy={6}
-          />
+          <CartesianGrid strokeDasharray="4 4" vertical={false} stroke={gridStroke} strokeOpacity={0.9} />
+          <XAxis dataKey="label" tick={{ fontSize: 11, fill: tickFill }} axisLine={false} tickLine={false} dy={6} />
           <YAxis
             domain={[0, 100]}
             width={36}
-            tick={{ fontSize: 11, fill: "#64748b" }}
+            tick={{ fontSize: 11, fill: tickFill }}
             axisLine={false}
             tickLine={false}
             tickFormatter={(v) => `${v}`}
           />
           <Tooltip
-            cursor={{ fill: "rgba(148, 163, 184, 0.1)" }}
+            cursor={{ fill: isDark ? "rgba(51, 65, 85, 0.4)" : "rgba(148, 163, 184, 0.1)" }}
             content={<ChartTooltip />}
             wrapperStyle={{ outline: "none" }}
           />

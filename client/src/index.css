@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;
@@ -17,13 +19,27 @@
     scroll-behavior: smooth;
   }
 
+  html,
+  body,
+  #root {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
   body {
     @apply bg-slate-50 text-slate-800 antialiased font-sans;
     font-family: var(--font-sans);
   }
 
+  .dark body {
+    @apply bg-[#0f172a] text-slate-300;
+  }
+
   ::selection {
     @apply bg-violet-200/80 text-slate-900;
+  }
+
+  .dark ::selection {
+    @apply bg-violet-500/40 text-slate-100;
   }
 }
 
@@ -33,11 +49,19 @@
   }
 
   .glass {
-    @apply bg-white/55 backdrop-blur-xl border border-white/60 shadow-[0_8px_40px_-12px_rgba(15,23,42,0.15)];
+    @apply bg-white/55 backdrop-blur-xl border border-white/60 shadow-[0_8px_40px_-12px_rgba(15,23,42,0.15)] transition-all duration-300 ease-in-out;
+  }
+
+  .dark .glass {
+    @apply bg-slate-800/55 border-slate-700/60 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.35)];
   }
 
   .glass-strong {
-    @apply bg-white/70 backdrop-blur-2xl border border-white/70 shadow-[0_12px_48px_-16px_rgba(15,23,42,0.2)];
+    @apply bg-white/70 backdrop-blur-2xl border border-white/70 shadow-[0_12px_48px_-16px_rgba(15,23,42,0.2)] transition-all duration-300 ease-in-out;
+  }
+
+  .dark .glass-strong {
+    @apply bg-slate-800/75 border-slate-700/70 shadow-[0_12px_48px_-16px_rgba(0,0,0,0.45)];
   }
 
   .gradient-page {
@@ -46,6 +70,15 @@
       radial-gradient(900px 500px at 90% 0%, rgb(184 217 240 / 0.5), transparent 50%),
       radial-gradient(800px 500px at 50% 100%, rgb(212 200 245 / 0.35), transparent 55%),
       linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .dark .gradient-page {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgb(45 212 191 / 0.08), transparent 55%),
+      radial-gradient(900px 500px at 90% 0%, rgb(56 189 248 / 0.08), transparent 50%),
+      radial-gradient(800px 500px at 50% 100%, rgb(167 139 250 / 0.1), transparent 55%),
+      linear-gradient(180deg, #0f172a 0%, #111827 100%);
   }
 
   .gradient-hero {
@@ -54,6 +87,15 @@
       radial-gradient(ellipse 800px 450px at 85% 10%, rgb(184 217 240 / 0.55), transparent 55%),
       radial-gradient(ellipse 700px 400px at 50% 90%, rgb(212 200 245 / 0.45), transparent 55%),
       linear-gradient(165deg, #f8fafc 0%, #eef6ff 45%, #f5f0ff 100%);
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .dark .gradient-hero {
+    background:
+      radial-gradient(ellipse 900px 500px at 20% 20%, rgb(45 212 191 / 0.12), transparent 60%),
+      radial-gradient(ellipse 800px 450px at 85% 10%, rgb(56 189 248 / 0.1), transparent 55%),
+      radial-gradient(ellipse 700px 400px at 50% 90%, rgb(167 139 250 / 0.12), transparent 55%),
+      linear-gradient(165deg, #0f172a 0%, #1e293b 50%, #111827 100%);
   }
 
   .animate-float {
@@ -69,7 +111,11 @@
   }
 
   .mindcare-input {
-    @apply w-full rounded-2xl border border-slate-200/80 bg-white/80 text-sm text-slate-900 outline-none transition focus:border-teal-300 focus:ring-2 focus:ring-teal-200;
+    @apply w-full rounded-2xl border border-slate-200/80 bg-white/80 text-sm text-slate-900 outline-none transition-all duration-300 ease-in-out focus:border-teal-300 focus:ring-2 focus:ring-teal-200;
+  }
+
+  .dark .mindcare-input {
+    @apply border-slate-600 bg-slate-800/90 text-slate-100 placeholder:text-slate-500 focus:border-teal-500 focus:ring-teal-500/30;
   }
 }
 

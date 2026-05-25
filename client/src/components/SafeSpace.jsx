@@ -51,12 +51,12 @@ function JournalEntryCard({ entry, onDelete }) {
   const preview = long ? `${entry.content.slice(0, PREVIEW_LENGTH).trim()}…` : entry.content;
 
   return (
-    <article className="rounded-2xl border border-slate-200/70 bg-white/50 p-4 transition-all duration-300">
+    <article className="rounded-2xl border border-slate-200/70 bg-white/50 p-4 transition-all duration-300 dark:border-slate-600/70 dark:bg-slate-800/50">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <h3 className="font-display text-base font-medium text-slate-900">{entry.title}</h3>
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-            <span className="rounded-full border border-teal-200/80 bg-teal-50/80 px-2 py-0.5 font-medium text-teal-900">
+          <h3 className="font-display text-base font-medium text-slate-900 dark:text-slate-100">{entry.title}</h3>
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <span className="rounded-full border border-teal-200/80 bg-teal-50/80 px-2 py-0.5 font-medium text-teal-900 dark:border-teal-700/50 dark:bg-teal-900/40 dark:text-teal-200">
               {moodLabel(entry.mood)}
             </span>
             <time dateTime={entry.createdAt}>{formatDate(entry.createdAt)}</time>
@@ -65,20 +65,20 @@ function JournalEntryCard({ entry, onDelete }) {
         <button
           type="button"
           onClick={() => onDelete(entry._id)}
-          className="shrink-0 rounded-lg p-1.5 text-slate-400 transition hover:bg-rose-50 hover:text-rose-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
+          className="shrink-0 rounded-lg p-1.5 text-slate-400 transition hover:bg-rose-50 hover:text-rose-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:hover:bg-rose-950/40 dark:hover:text-rose-400"
           aria-label={`Delete entry ${entry.title}`}
         >
           <HiOutlineTrash className="h-4 w-4" />
         </button>
       </div>
-      <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-slate-600">
+      <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-slate-600 dark:text-slate-400">
         {expanded || !long ? entry.content : preview}
       </p>
       {long ? (
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="mt-2 text-xs font-medium text-teal-800 underline decoration-teal-200 underline-offset-2 hover:text-teal-950"
+          className="mt-2 text-xs font-medium text-teal-800 underline decoration-teal-200 underline-offset-2 hover:text-teal-950 dark:text-teal-300 dark:decoration-teal-700 dark:hover:text-teal-200"
         >
           {expanded ? "Show less" : "Read more"}
         </button>
@@ -171,15 +171,15 @@ export default function SafeSpace() {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <HiOutlineBookOpen className="h-5 w-5 text-teal-700" aria-hidden />
-            <h2 id="safe-space-heading" className="font-display text-lg text-slate-900">
+            <HiOutlineBookOpen className="h-5 w-5 text-teal-700 dark:text-teal-400" aria-hidden />
+            <h2 id="safe-space-heading" className="font-display text-lg text-slate-900 dark:text-slate-100">
               Safe Space
             </h2>
           </div>
-          <p className="mt-1 text-xs text-slate-600">Your private reflection journal.</p>
+          <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Your private reflection journal.</p>
         </div>
         {streak > 0 ? (
-          <span className="rounded-xl border border-white/60 bg-white/50 px-3 py-1 text-xs font-semibold text-teal-900">
+          <span className="rounded-xl border border-white/60 bg-white/50 px-3 py-1 text-xs font-semibold text-teal-900 dark:border-slate-600 dark:bg-slate-800/60 dark:text-teal-300">
             {streak} day journal streak
           </span>
         ) : null}
@@ -187,13 +187,13 @@ export default function SafeSpace() {
 
       <form onSubmit={handleSubmit} className="mt-5 space-y-4">
         {error ? (
-          <p className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-900" role="alert">
+          <p className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-900 dark:border-rose-900/50 dark:bg-rose-950/40 dark:text-rose-200" role="alert">
             {error}
           </p>
         ) : null}
         {savedFlash ? (
           <p
-            className="animate-fade-up rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-900"
+            className="animate-fade-up rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-900 dark:border-emerald-800/50 dark:bg-emerald-950/40 dark:text-emerald-200"
             role="status"
           >
             Entry saved to your Safe Space.
@@ -201,7 +201,7 @@ export default function SafeSpace() {
         ) : null}
 
         <div>
-          <label htmlFor="journal-title" className="text-xs font-medium text-slate-800">
+          <label htmlFor="journal-title" className="text-xs font-medium text-slate-800 dark:text-slate-200">
             Title
           </label>
           <input
@@ -217,7 +217,7 @@ export default function SafeSpace() {
         </div>
 
         <div>
-          <label htmlFor="journal-mood" className="text-xs font-medium text-slate-800">
+          <label htmlFor="journal-mood" className="text-xs font-medium text-slate-800 dark:text-slate-200">
             Mood
           </label>
           <select
@@ -236,7 +236,7 @@ export default function SafeSpace() {
         </div>
 
         <div>
-          <label htmlFor="journal-content" className="text-xs font-medium text-slate-800">
+          <label htmlFor="journal-content" className="text-xs font-medium text-slate-800 dark:text-slate-200">
             Your reflection
           </label>
           <textarea
@@ -257,13 +257,13 @@ export default function SafeSpace() {
         </Button>
       </form>
 
-      <div className="mt-8 border-t border-slate-200/60 pt-6">
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Recent reflections</h3>
+      <div className="mt-8 border-t border-slate-200/60 pt-6 dark:border-slate-700/60">
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Recent reflections</h3>
 
         {loading ? (
-          <p className="mt-4 text-center text-xs text-slate-500">Loading entries…</p>
+          <p className="mt-4 text-center text-xs text-slate-500 dark:text-slate-400">Loading entries…</p>
         ) : entries.length === 0 ? (
-          <p className="mt-4 rounded-2xl border border-dashed border-slate-200/80 bg-white/40 px-4 py-8 text-center text-sm text-slate-600">
+          <p className="mt-4 rounded-2xl border border-dashed border-slate-200/80 bg-white/40 px-4 py-8 text-center text-sm text-slate-600 dark:border-slate-600 dark:bg-slate-800/30 dark:text-slate-400">
             Your reflections will appear here. Small thoughts matter too.
           </p>
         ) : (

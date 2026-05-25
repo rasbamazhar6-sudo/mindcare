@@ -84,34 +84,34 @@ export default function Conditions() {
                     }`}
                   >
                     <div className="min-h-0 overflow-hidden">
-                      <div className="space-y-4 border-t border-slate-200/60 px-4 pb-4 pt-3 sm:px-5">
+                      <div className="space-y-4 border-t border-slate-200/60 px-4 pb-4 pt-3 dark:border-slate-700/60 sm:px-5">
                         <section>
-                          <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800">Overview</h3>
-                          <p className="mt-1 text-xs leading-relaxed text-slate-600">{c.overview}</p>
+                          <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200">Overview</h3>
+                          <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">{c.overview}</p>
                         </section>
                         <div className="grid gap-4 sm:grid-cols-2">
                           <section>
-                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800">Symptoms</h3>
+                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200">Symptoms</h3>
                             <BulletList items={c.symptoms} dotClass="bg-violet-400" />
                           </section>
                           <section>
-                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800">Possible causes</h3>
+                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200">Possible causes</h3>
                             <BulletList items={c.causes} dotClass="bg-teal-400" />
                           </section>
                           <section>
-                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800">Coping methods</h3>
+                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200">Coping methods</h3>
                             <BulletList items={c.coping} dotClass="bg-sky-400" />
                           </section>
                           <section>
-                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800">Precautions</h3>
+                            <h3 className="text-[10px] font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200">Precautions</h3>
                             <BulletList items={c.precautions} dotClass="bg-amber-400" />
                           </section>
                         </div>
-                        <section className="rounded-xl border border-teal-200/70 bg-teal-50/50 px-3 py-2.5">
-                          <h3 className="text-[10px] font-semibold uppercase tracking-wide text-teal-900">
+                        <section className="rounded-xl border border-teal-200/70 bg-teal-50/50 px-3 py-2.5 dark:border-teal-800/50 dark:bg-teal-950/30">
+                          <h3 className="text-[10px] font-semibold uppercase tracking-wide text-teal-900 dark:text-teal-300">
                             When to seek professional help
                           </h3>
-                          <p className="mt-1 text-xs leading-relaxed text-slate-700">{c.professional}</p>
+                          <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">{c.professional}</p>
                         </section>
                       </div>
                     </div>

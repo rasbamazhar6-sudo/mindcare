@@ -8,6 +8,13 @@
       name="description"
       content="MindCare — a calm, modern space for mental health awareness, wellness tools, and supportive resources."
     />
+    <script>
+      (function () {
+        if (localStorage.getItem("mindcare_theme") === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

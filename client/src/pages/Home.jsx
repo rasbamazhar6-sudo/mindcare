@@ -129,11 +129,11 @@ export default function Home() {
                     <p className="mt-2 font-display text-2xl text-slate-900">AI companion</p>
                     <p className="mt-2 text-sm text-slate-600">Empathic guidance—not diagnosis.</p>
                   </div>
-                  <div className="sm:col-span-2 rounded-2xl border border-white/60 bg-gradient-to-br from-emerald-50/90 via-white/80 to-violet-50/70 p-6 text-center shadow-sm transition-shadow duration-300 hover:shadow-md sm:p-8">
-                    <blockquote className="font-display text-lg font-medium leading-snug text-slate-900 sm:text-xl">
+                  <div className="sm:col-span-2 rounded-2xl border border-white/60 bg-gradient-to-br from-emerald-50/90 via-white/80 to-violet-50/70 p-6 text-center shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-600/50 dark:from-emerald-950/40 dark:via-slate-800/60 dark:to-violet-950/40 sm:p-8">
+                    <blockquote className="font-display text-lg font-medium leading-snug text-slate-900 sm:text-xl dark:text-slate-100">
                       “Your mental health matters every single day.”
                     </blockquote>
-                    <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
+                    <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                       Small steps, support, and self-care can slowly bring healing and strength.
                     </p>
                   </div>
