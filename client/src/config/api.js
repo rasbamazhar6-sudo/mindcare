@@ -9,7 +9,7 @@ function resolveApiBaseUrl() {
 
   if (!url || !String(url).trim()) {
     console.warn("VITE_API_URL is missing");
-    return "https://mindcare-production-db52.up.railway.app/api";
+    return "https://mindcare-production-db52.up.railway.app";
   }
 
   return String(url).trim().replace(/\/$/, "");
