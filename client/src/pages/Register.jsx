@@ -100,7 +100,7 @@ export default function Register() {
                         ? "border-rose-300 focus:border-rose-400 focus:ring-rose-100"
                         : "border-slate-200/80 focus:border-teal-300 focus:ring-teal-200"
                     }`}
-                    placeholder="Rasba Mazhar"
+                    placeholder="Full Name "
                   />
                 </div>
                 {show("name") ? (
